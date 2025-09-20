@@ -1,0 +1,22 @@
+{
+    "manifest_version":3,
+    "name": "MyExtention",
+    "description": "Find global entry interviews that met your selection creteria",
+    "version": "1.0",
+    "action":{
+        "default_popup": "popup/popup.html"
+    },
+    "icons":{
+        "16": "images/icon-01.png",
+        "32": "images/icon-03.png",
+        "48": "images/icon-04.png",
+        "128": "images/icon-06.png"
+    },
+    "background":{
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "permissions":[
+        "storage"
+    ]
+}
