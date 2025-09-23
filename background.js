@@ -1,11 +1,8 @@
-let data = {
-    "event": "onStop/onStart",
-    "prefs": {
-        "locationId": "123",
-        "startDate": "2023-02-02",
-        "endDate": "2023-03-03"
-    }
-}
+import fetchLocations from "./api/fetchLocations"
+
+chrome.runtime.onInstalled.addListener( details =>{
+    console.log("onInstalled reason: ",details.reason)
+})
 
 chrome.runtime.onMessage.addListner( data=>{
     const {event, prefs} =data
