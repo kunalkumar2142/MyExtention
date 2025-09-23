@@ -9,18 +9,25 @@ const endDateElement = document.getElementById("endDate")
 const startButtom = document.getElementById("startButton")
 const stopButtom = document.getElementById("stopButton")
 
-startButtom.onclick = function(){
-    if(startDateElement.value){
-        console.log("start date element:", startDateElement.value);
-    }else{
-        console.log("start date is invalid!!")
+startButtom.onclick = () => {
+    const prefs = {
+        locationId: locationIdElement.value,
+        startDate: startDateElement.value,
+        endDate: endDateElement.value
     }
+    chrome.runtime.sendMessage({event: 'onStart', preps})
 }
 
-stopButtom.onclick = function(){
-    if(endDateElement.value){
-        console.log("end date element:", endDateElement.value);
-    }else{
-        console.log("end date is invalid!!")
-    }
+stopButtom.onclick = () => {
+    chrome.runtime.sendMessage({event: 'onStop'})
 }
+
+chrome.storage.local.get(["locationId","startDate","endDate"], (result) => {
+    const {locationId,startDate,endDate} = result;
+
+    if (locationId){
+        locationIdElement.value = locationId
+        startDateElement.value = startDate
+        endDateElement.value = endDate
+    }
+}) 

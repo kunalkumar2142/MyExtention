@@ -2,7 +2,7 @@
     "manifest_version":3,
     "name": "MyExtention",
     "description": "Find global entry interviews that met your selection creteria",
-    "version": "1.0",
+    "version": "4.9.110",
     "action":{
         "default_popup": "popup/popup.html"
     },
