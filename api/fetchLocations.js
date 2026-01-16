@@ -4,8 +4,15 @@ export default function fetchLocations(){
     fetch(LOCATION_ENDPOINT)
         .then( response => response.json())
         .then( data => {
-            const filteredLocations = 
-            console.log(data);
+            const filteredLocations = data.map(loc => ({
+                "id": loc.id,
+                "name": loc.name,
+                "shortName": loc.shortName,
+                "tzDate": loc.tzDate
+            }))
+            filteredLocations.sort((a, b) => a.name.localeCompare(b.name));
+            chrome.storage.local.set({ locations: filteredLocations})
+            console.log(filteredLocations);
         })
         .catch(error => {
             console.log(error);

@@ -27,7 +27,11 @@ chrome.storage.local.get(["locationId","startDate","endDate"], (result) => {
 
     if (locationId){
         locationIdElement.value = locationId
+    }
+    if(startDate){
         startDateElement.value = startDate
+    }
+    if(endDate){
         endDateElement.value = endDate
     }
 }) 
