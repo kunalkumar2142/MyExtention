@@ -1,11 +1,9 @@
 // Elements.
-
 const locationIdElement = document.getElementById("locationId")
 const startDateElement = document.getElementById("startDate")
 const endDateElement = document.getElementById("endDate")
 
 // Button elements
-
 const startButtom = document.getElementById("startButton")
 const stopButtom = document.getElementById("stopButton")
 
