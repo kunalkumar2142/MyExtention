@@ -27,3 +27,8 @@ const handleOnStart = () => {
     console.log("prefs recieveed:", prefs)
     chrome.storage.local.set(prefs)
 }
+
+const ALARM_JOB_NAME = "DROP_ALARM"
+const createAlarm = () => {
+    chrome.alarms.create(ALARM_JOB_NAME, { periodInMinutes: 1.0 })
+}
